@@ -1,10 +1,10 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import '../models/news_model.dart';
 
 class NewsApiProvider extends GetConnect {
   static const String _baseUrl = 'https://eventregistry.org/api/v1';
-  static const String _apiKey = '493080f8-6e0f-44de-a19a-8e84581c68fc';
-
+  static final String _apiKey = dotenv.env['NEWS_API_KEY'] ?? '';
   @override
   void onInit() {
     httpClient.baseUrl = _baseUrl;

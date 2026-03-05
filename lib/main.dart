@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 
 import 'app/di.dart';
 import 'app/routes/routes.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   DependencyInjection.init();
+  try {
+    await dotenv.load(fileName: ".env");
+    debugPrint(".env dosyası başarıyla yüklendi");
+  } catch (e) {
+    debugPrint(".env dosyası yüklenirken hata oluştu: $e");
+  }
   runApp(const MyApp());
 }
 

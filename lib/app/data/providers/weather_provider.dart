@@ -2,6 +2,7 @@
 // Burada Dio Kullanıyoruz . GetConnect değil.  ================================
 //==============================================================================
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart' hide Response;
 import '../services/network_service.dart';
 
@@ -9,7 +10,7 @@ class WeatherProvider {
   // Get.find ile önceden oluşturduğumuz NetworkService'e ulaşıyoruz
   final Dio _dio = Get.find<NetworkService>().dio;
 
-  static const String _apiKey = 'fc61d1a68498437ebdf105227260503';
+  static final String _apiKey = dotenv.env['WEATHER_API_KEY'] ?? '';
 
   Future<Response> getWeather(String city,int days) async {
     try {

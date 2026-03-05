@@ -1,0 +1,36 @@
+import 'package:api_usage/app/modules/home/home.dart';
+import 'package:api_usage/app/modules/home/home_view.dart';
+import 'package:api_usage/app/modules/weather/weather_view.dart';
+import 'package:get/get.dart';
+import '../modules/news/bindings/news_binding.dart';
+import '../modules/news/views/news_list_view.dart';
+import '../modules/news/views/news_detail_view.dart';
+import '../modules/weather/weather_binding.dart';
+import 'app_routes.dart';
+
+class AppPages {
+  static const initial = AppRoutes.home;
+
+  static final routes = [
+    GetPage(
+      name: AppRoutes.newsList,
+      page: () => const NewsListView(),
+      binding: NewsBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.newsDetail,
+      page: () => const NewsDetailView(),
+    ),
+    GetPage(
+      name: AppRoutes.home,
+      page: () => const HomeScreen(),
+      binding: HomeBinding()
+    ),
+    GetPage(
+      name: AppRoutes.weather,
+      page: () => WeatherScreen(),
+      binding: WeatherBinding()
+    ),
+    //add more pages here as needed
+  ];
+}

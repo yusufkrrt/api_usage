@@ -6,33 +6,43 @@ class WeatherController extends GetxController with StateMixin<WeatherModel> {
   final WeatherRepository weatherRepository;
   WeatherController({required this.weatherRepository});
 
-  // Şehir ismini tutan observable ve giriş kutusu için controller
   final city = 'Istanbul'.obs;
+  final day = 1.obs; // Seçilen gün sayısını tutar
   final textController = TextEditingController();
+
+  // Dropdown için seçenekler listesi
+  final List<int> dayOptions = [1, 3, 5, 7, 15];
 
   @override
   void onInit() {
     super.onInit();
-    // city.value kullanarak string değere ulaşıyoruz
-    getWeatherByCity(city.value);
+    getWeatherByCity(city.value, day.value);
   }
 
-  // Yeni bir şehir aratıldığında çağrılacak fonksiyon
-  void onSearchCity() {
-    if (textController.text.isNotEmpty) {
-      city.value = textController.text;
-      getWeatherByCity(city.value);
+  // Gün sayısı değiştiğinde çalışacak fonksiyon
+  void onDayChanged(int? newValue) {
+    if (newValue != null) {
+      day.value = newValue;
+      // Gün değiştiğinde otomatik olarak mevcut şehirle tekrar ara
+      getWeatherByCity(city.value, day.value);
     }
   }
 
-  void getWeatherByCity(String cityName) async {
+  void onSearchCity() {
+    if (textController.text.isNotEmpty) {
+      city.value = textController.text;
+    }
+    // text boş olsa bile mevcut city.value ve güncel day.value ile ara
+    getWeatherByCity(city.value, day.value);
+  }
+
+  void getWeatherByCity(String cityName, int dayCount) async {
     change(null, status: RxStatus.loading());
     try {
-      // API'den veriyi çek
-      final result = await weatherRepository.fetchWeather(cityName, 1);
+      final result = await weatherRepository.fetchWeather(cityName, dayCount);
       change(result, status: RxStatus.success());
     } catch (e) {
-      change(null, status: RxStatus.error("Şehir bulunamadı veya hata oluştu."));
+      change(null, status: RxStatus.error("Hata oluştu: $e"));
     }
   }
 

@@ -1,3 +1,5 @@
+import 'package:api_usage/app/modules/crypto/crypto_binding.dart';
+import 'package:api_usage/app/modules/crypto/crypto_viev.dart';
 import 'package:api_usage/app/modules/home/home.dart';
 import 'package:api_usage/app/modules/home/home_view.dart';
 import 'package:api_usage/app/modules/weather/weather_view.dart';
@@ -30,6 +32,11 @@ class AppPages {
       name: AppRoutes.weather,
       page: () => WeatherScreen(),
       binding: WeatherBinding()
+    ),
+    GetPage(
+      name: AppRoutes.crypto,
+      page: () => CryptoScreen(),
+      binding: CryptoBinding()
     ),
     //add more pages here as needed
   ];

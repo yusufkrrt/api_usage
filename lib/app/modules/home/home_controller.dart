@@ -25,13 +25,16 @@ class HomeController extends GetxController {
       case "Weather API":
         Get.toNamed("/weather");
         break;
-    // İleride eklenecek diğer API'ler için:
-    // case "Weather API":
-    //   Get.toNamed('/weather');
-    //   break;
+      case "Crypto API":
+        Get.toNamed("/crypto");
+        break;
+      // Add more cases for other APIs as needed
+      //"
+      // case "Weather API":
+      //   Get.toNamed('/weather');
+      //   break;
       default:
         Get.snackbar("Bilgi", "Bu sayfa henüz hazır değil.");
     }
   }
 }
-

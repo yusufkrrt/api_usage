@@ -14,7 +14,7 @@ class WeatherProvider {
 
   Future<Response> getWeather(String city,int days) async {
     try {
-      final response = await _dio.get('/current.json', queryParameters: {
+      final response = await _dio.get('https://api.weatherapi.com/v1/current.json', queryParameters: {
         'key': _apiKey,
         'q': city,
         'days': days,

@@ -1,15 +1,22 @@
+// lib/app/data/services/network_service.dart
+
 import 'package:dio/dio.dart';
 
 class NetworkService {
   late Dio _dio;
 
   NetworkService() {
-    _dio = Dio(BaseOptions(baseUrl: 'https://api.weatherapi.com/v1',
+    _dio = Dio(BaseOptions(
+      baseUrl: '',
       connectTimeout: const Duration(seconds: 15),
       receiveTimeout: const Duration(seconds: 15),
     ));
 
-    _dio.interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
+    _dio.interceptors.add(LogInterceptor(
+      responseBody: true,
+      requestBody: true,
+      requestHeader: true, // CMC için header'lar önemli, bunu açmanızı öneririm
+    ));
   }
 
   Dio get dio => _dio;

@@ -2,6 +2,8 @@ import 'package:api_usage/app/modules/crypto/crypto_binding.dart';
 import 'package:api_usage/app/modules/crypto/crypto_viev.dart';
 import 'package:api_usage/app/modules/home/home.dart';
 import 'package:api_usage/app/modules/home/home_view.dart';
+import 'package:api_usage/app/modules/movie/movie_binding.dart';
+import 'package:api_usage/app/modules/movie/movie_view.dart';
 import 'package:api_usage/app/modules/weather/weather_view.dart';
 import 'package:get/get.dart';
 import '../modules/news/bindings/news_binding.dart';
@@ -37,6 +39,11 @@ class AppPages {
       name: AppRoutes.crypto,
       page: () => CryptoScreen(),
       binding: CryptoBinding()
+    ),
+    GetPage(
+      name: AppRoutes.movie,
+      page: () => MovieView(),
+      binding: MovieBinding()
     ),
     //add more pages here as needed
   ];

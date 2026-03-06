@@ -7,12 +7,12 @@ class HomeController extends GetxController {
     "Weather API",
     "Crypto API",
     "Movie API",
-    "Food API",
-    "Joke API",
-    "Quotes API",
-    "User API",
-    "Image API",
-    "Music API",
+    "Food API -soon",
+    "Joke API-soon",
+    "Quotes API-soon",
+    "User API-soon",
+    "Image API-soon",
+    "Music API-soon",
   ];
   void onApiItemSelected(int index) {
     final selectedApi = apiList[index];
@@ -27,6 +27,9 @@ class HomeController extends GetxController {
         break;
       case "Crypto API":
         Get.toNamed("/crypto");
+        break;
+      case "Movie API":
+        Get.toNamed("/movie");
         break;
       // Add more cases for other APIs as needed
       //"

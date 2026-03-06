@@ -8,23 +8,44 @@ class MovieProvider {
 
   static const String _baseUrl = 'https://api.themoviedb.org/3';
   static final String _apiKey = dotenv.env['MOVIE_API_KEY'] ?? '';
+
   Future<List<dynamic>> getPopularMovies() async {
     try {
       final response = await _dio.get(
         '$_baseUrl/movie/popular',
         queryParameters: {
           'api_key': _apiKey,
-          'language': 'tr-TR', // Türkçe destekler
+          'language': 'tr-TR',
           'page': 1,
         },
       );
-
       if (response.statusCode == 200) {
-        return response.data['results']; // Film listesini döner
+        return response.data['results'];
       }
       return [];
     } catch (e) {
-      print('TMDB Error: $e');
+      print('TMDB Popular Error: $e');
+      return [];
+    }
+  }
+
+  Future<List<dynamic>> searchMovies(String query) async {
+    try {
+      final response = await _dio.get(
+        '$_baseUrl/search/movie',
+        queryParameters: {
+          'api_key': _apiKey,
+          'query': query,
+          'language': 'tr-TR',
+          'page': 1,
+        },
+      );
+      if (response.statusCode == 200) {
+        return response.data['results'];
+      }
+      return [];
+    } catch (e) {
+      print('TMDB Search Error: $e');
       return [];
     }
   }

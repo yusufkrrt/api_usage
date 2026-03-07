@@ -1,5 +1,7 @@
 import 'package:api_usage/app/modules/crypto/crypto_binding.dart';
 import 'package:api_usage/app/modules/crypto/crypto_viev.dart';
+import 'package:api_usage/app/modules/food/food_binding.dart';
+import 'package:api_usage/app/modules/food/food_view.dart';
 import 'package:api_usage/app/modules/home/home.dart';
 import 'package:api_usage/app/modules/home/home_view.dart';
 import 'package:api_usage/app/modules/movie/movie_binding.dart';
@@ -44,6 +46,11 @@ class AppPages {
       name: AppRoutes.movie,
       page: () => MovieView(),
       binding: MovieBinding()
+    ),
+    GetPage(
+      name: AppRoutes.food,
+      page: () => FoodScreen(),
+      binding: FoodBinding()
     ),
     //add more pages here as needed
   ];

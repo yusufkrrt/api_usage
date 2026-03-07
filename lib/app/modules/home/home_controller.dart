@@ -7,7 +7,7 @@ class HomeController extends GetxController {
     "Weather API",
     "Crypto API",
     "Movie API",
-    "Food API -soon",
+    "Food API",
     "Joke API-soon",
     "Quotes API-soon",
     "User API-soon",
@@ -30,6 +30,9 @@ class HomeController extends GetxController {
         break;
       case "Movie API":
         Get.toNamed("/movie");
+        break;
+      case "Food API":
+        Get.toNamed("/food");
         break;
       // Add more cases for other APIs as needed
       //"

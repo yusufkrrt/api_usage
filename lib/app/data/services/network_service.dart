@@ -15,7 +15,7 @@ class NetworkService {
     _dio.interceptors.add(LogInterceptor(
       responseBody: true,
       requestBody: true,
-      requestHeader: true, // CMC için header'lar önemli, bunu açmanızı öneririm
+      requestHeader: true,
     ));
   }
 

@@ -36,11 +36,11 @@ class Result {
   String? trackName;
   String? trackCensoredName;
   String? trackViewUrl;
-  String previewUrl;
+  String? previewUrl;
   String? artworkUrl30;
-  String artworkUrl60;
-  String artworkUrl100;
-  double collectionPrice;
+  String? artworkUrl60;
+  String? artworkUrl100;
+  double? collectionPrice;
   double? trackPrice;
   double? trackRentalPrice;
   double? collectionHdPrice;
@@ -80,11 +80,11 @@ class Result {
     this.trackName,
     this.trackCensoredName,
     this.trackViewUrl,
-    required this.previewUrl,
+    this.previewUrl,
     this.artworkUrl30,
-    required this.artworkUrl60,
-    required this.artworkUrl100,
-    required this.collectionPrice,
+    this.artworkUrl60,
+    this.artworkUrl100,
+    this.collectionPrice,
     this.trackPrice,
     this.trackRentalPrice,
     this.collectionHdPrice,
@@ -136,8 +136,8 @@ class Result {
     trackHdPrice: json["trackHdPrice"]?.toDouble(),
     trackHdRentalPrice: json["trackHdRentalPrice"]?.toDouble(),
     releaseDate: DateTime.parse(json["releaseDate"]),
-    collectionExplicitness: explicitnessValues.map[json["collectionExplicitness"]]!,
-    trackExplicitness: explicitnessValues.map[json["trackExplicitness"]]!,
+    collectionExplicitness: explicitnessValues.map[json["collectionExplicitness"]] ?? Explicitness.NOT_EXPLICIT,
+    trackExplicitness: explicitnessValues.map[json["trackExplicitness"]],
     trackTimeMillis: json["trackTimeMillis"],
     country: countryValues.map[json["country"]]!,
     currency: currencyValues.map[json["currency"]]!,

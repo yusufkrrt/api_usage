@@ -1,4 +1,6 @@
 abstract class AppRoutes {
+  static const playground = '/';
+  static const animations = '/animations';
   static const home='/home';
   static const newsList = '/news';
   static const newsDetail = '/news/detail';

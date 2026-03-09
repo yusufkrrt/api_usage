@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'News API Learning',
+      title: 'Flutter Playground',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,

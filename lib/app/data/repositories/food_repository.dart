@@ -9,7 +9,6 @@ class FoodRepository {
     try {
       final response = await apiProvider.searchRecipes(query);
       if (response.statusCode == 200 && response.data != null) {
-        // ⭐ JSON parse burada yapılır
         return FoodModel.fromJson(response.data);
       }
       return null;

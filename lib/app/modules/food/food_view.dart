@@ -15,7 +15,7 @@ class FoodScreen extends GetView<FoodController> {
       ),
       body: Column(
         children: [
-          // ⭐ ARAMA ALANI
+          // ARAMA ALANI
           Padding(
             padding: const EdgeInsets.all(12),
             child: TextField(
@@ -37,13 +37,13 @@ class FoodScreen extends GetView<FoodController> {
                 fillColor: Colors.grey.shade100,
               ),
               onSubmitted: (value) {
-                // ⭐ Klavyeden Enter'a basınca arama yap
+                // Klavyeden Enter'a basınca arama yap
                 controller.searchRecipes(value.trim());
               },
             ),
           ),
 
-          // ⭐ LİSTE ALANI
+          // LİSTE ALANI
           Expanded(
             child: controller.obx(
                   (state) => ListView.separated(

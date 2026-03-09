@@ -8,6 +8,9 @@ import 'package:api_usage/app/modules/movie/movie_binding.dart';
 import 'package:api_usage/app/modules/movie/movie_view.dart';
 import 'package:api_usage/app/modules/weather/weather_view.dart';
 import 'package:get/get.dart';
+import '../modules/music/music_binding.dart';
+import '../modules/music/music_detail_view.dart';
+import '../modules/music/music_list_view.dart';
 import '../modules/news/bindings/news_binding.dart';
 import '../modules/news/views/news_list_view.dart';
 import '../modules/news/views/news_detail_view.dart';
@@ -52,6 +55,14 @@ class AppPages {
       page: () => FoodScreen(),
       binding: FoodBinding()
     ),
-    //add more pages here as needed
+    GetPage(
+      name: AppRoutes.musicList,
+      page: () => MusicListView(),
+      binding: MusicBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.musicDetail,
+      page: () => MusicDetailView(song: {},),
+    ),
   ];
 }

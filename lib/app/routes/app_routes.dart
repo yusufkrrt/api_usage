@@ -6,5 +6,7 @@ abstract class AppRoutes {
   static const crypto = '/crypto';
   static const movie = '/movie';
   static const food = '/food';
+  static const musicList = '/musicList';
+  static const musicDetail = '/musicDetail';
   //add more routes here as needed
 }
